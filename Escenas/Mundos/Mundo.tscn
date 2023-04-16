@@ -895,6 +895,6 @@ anims/RESET = SubResource( 28 )
 anims/idle = SubResource( 29 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 841, 70 )
+position = Vector2( 132, 88 )
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_DeadZone_body_entered"]
