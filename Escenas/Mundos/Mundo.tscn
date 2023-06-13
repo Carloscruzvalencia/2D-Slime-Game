@@ -1,9 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Escenas/Players/slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Escenas/plataformas/Plataforma-S-Forest-up.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rocky Roads/Objects/sign_arrow.png" type="Texture" id=3]
-[ext_resource path="res://Rocky Roads/Deco/water_a_8frames.png" type="Texture" id=4]
+[ext_resource path="res://new-co/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Rocky Roads/Deco/tree_b.png" type="Texture" id=5]
 [ext_resource path="res://Rocky Roads/Deco/tree_trunk.png" type="Texture" id=6]
 [ext_resource path="res://Rocky Roads/Deco/bush.png" type="Texture" id=7]
@@ -13,7 +13,7 @@
 [ext_resource path="res://Scripts/DeadZone.gd" type="Script" id=11]
 [ext_resource path="res://Rocky Roads/Tilesets/tileset_dirt.png" type="Texture" id=12]
 [ext_resource path="res://Escenas/Enemies/Spikes.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Rocky Roads/Backgrounds/mountains_a.png" type="Texture" id=14]
+[ext_resource path="res://Escenas/Items/treasure.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Escenas/Enemies/RedSnake.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -643,38 +643,6 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 847, 21 )
 
-[sub_resource type="Animation" id=28]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=29]
-resource_name = "idle"
-length = 0.747
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7 ]
-}
-
 [node name="Mundo" type="TileMap"]
 position = Vector2( 2, 359 )
 tile_set = SubResource( 12 )
@@ -763,6 +731,7 @@ texture = ExtResource( 3 )
 
 [node name="Plataforma-S-Forest2" parent="Platforms/Forest/Platforms-S" instance=ExtResource( 2 )]
 position = Vector2( 421, 0 )
+z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Forest/Platforms-S/Plataforma-S-Forest2"]
 autoplay = "patch"
@@ -771,6 +740,7 @@ anims/patch = SubResource( 16 )
 
 [node name="Plataforma-S-Forest" parent="Platforms/Forest/Platforms-S" instance=ExtResource( 2 )]
 position = Vector2( 372, 122 )
+z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Forest/Platforms-S/Plataforma-S-Forest"]
 autoplay = "patch"
@@ -779,6 +749,7 @@ anims/patch = SubResource( 14 )
 
 [node name="Plataforma-S-Forest4" parent="Platforms/Forest/Platforms-S" instance=ExtResource( 2 )]
 position = Vector2( 529, 78 )
+z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Forest/Platforms-S/Plataforma-S-Forest4"]
 autoplay = "patch"
@@ -787,6 +758,7 @@ anims/patch = SubResource( 20 )
 
 [node name="Plataforma-S-Forest3" parent="Platforms/Forest/Platforms-S" instance=ExtResource( 2 )]
 position = Vector2( 487, 119 )
+z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Forest/Platforms-S/Plataforma-S-Forest3"]
 autoplay = "patch"
@@ -820,13 +792,13 @@ position = Vector2( 658, 74 )
 position = Vector2( 785, 54 )
 
 [node name="Silver-S-Coin7" parent="Items/Coins/Coin-SS" instance=ExtResource( 9 )]
-position = Vector2( 421, 50 )
+position = Vector2( 421, 30 )
 
 [node name="Silver-S-Coin8" parent="Items/Coins/Coin-SS" instance=ExtResource( 9 )]
-position = Vector2( 421, 26 )
+position = Vector2( 421, 10 )
 
 [node name="Silver-S-Coin9" parent="Items/Coins/Coin-SS" instance=ExtResource( 9 )]
-position = Vector2( 421, -3 )
+position = Vector2( 421, -17 )
 
 [node name="Silver-S-Coin10" parent="Items/Coins/Coin-SS" instance=ExtResource( 9 )]
 position = Vector2( 247, 85 )
@@ -845,16 +817,18 @@ position = Vector2( 656, 112 )
 [node name="Spikes2" parent="Enemies/Spikes" instance=ExtResource( 13 )]
 position = Vector2( 784, 96 )
 
-[node name="EnemySnake" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 714, 63 )
+[node name="snakes" type="Node2D" parent="Enemies"]
+
+[node name="EnemySnake" parent="Enemies/snakes" instance=ExtResource( 15 )]
+position = Vector2( 686, 61 )
 scale = Vector2( 2.41797, 2.5625 )
 
-[node name="EnemySnake2" parent="Enemies" instance=ExtResource( 15 )]
+[node name="EnemySnake2" parent="Enemies/snakes" instance=ExtResource( 15 )]
 position = Vector2( 919, 78 )
 scale = Vector2( 2.41797, 2.5625 )
 
-[node name="EnemySnake3" parent="Enemies" instance=ExtResource( 15 )]
-position = Vector2( 1292, 77 )
+[node name="EnemySnake3" parent="Enemies/snakes" instance=ExtResource( 15 )]
+position = Vector2( 1313, 75 )
 scale = Vector2( 2.41797, 2.5625 )
 
 [node name="DeadZone" type="Area2D" parent="."]
@@ -866,35 +840,12 @@ shape = SubResource( 25 )
 
 [node name="UI-CANVAS" parent="." instance=ExtResource( 10 )]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.15, 1 )
-motion_mirroring = Vector2( 618.404, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 7, 264 )
-scale = Vector2( 2.41797, 2.5625 )
-texture = ExtResource( 14 )
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 400, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 271, 593 )
-scale = Vector2( 17, 7.517 )
-texture = ExtResource( 4 )
-hframes = 8
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2/Sprite"]
-root_node = NodePath("../../../..")
-autoplay = "idle"
-anims/RESET = SubResource( 28 )
-anims/idle = SubResource( 29 )
+[node name="treasure" parent="." instance=ExtResource( 14 )]
+position = Vector2( 867, 64 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 132, 88 )
+position = Vector2( 812, 71 )
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_DeadZone_body_entered"]

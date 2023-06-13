@@ -10,3 +10,7 @@ func _ready():
 func SilverCoinHandler():
 	SilverCoins += 1
 	$Text/Counters/SilverCoinContador.text = str(SilverCoins)
+
+func GoldCoinHandler():
+	GoldCoins += 1
+	$Text/Counters/GoldCoinContador.text = str(GoldCoins)

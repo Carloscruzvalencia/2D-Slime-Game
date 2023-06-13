@@ -39,7 +39,27 @@ func _physics_process(_delta):
 		if friction ==true:
 			motion.x = lerp(motion.x,0,0.01)
 	motion = move_and_slide(motion,up)
+	
 
 func addcoin():
 	var canvasLayer = get_tree().get_root().find_node("UI-CANVAS",true,false)
 	canvasLayer.SilverCoinHandler()
+	
+func addcoinGold():
+	var canvasLayer = get_tree().get_root().find_node("UI-CANVAS",true,false)
+	canvasLayer.GoldCoinHandler()
+
+func bounce():
+	motion.y = jumpHeight * 0.7
+
+func anDamage():
+	$Sprite/AnimationPlayer.play("damage")
+
+func damage1():
+	motion.x = jumpHeight * -0.7
+	anDamage()
+	
+func damage2():
+	motion.x = jumpHeight * 0.7
+	anDamage()
+

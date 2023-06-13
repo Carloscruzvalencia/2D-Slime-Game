@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/treasure_chest.png-78c00a9e5339cc26cb47e5988f09d14e.stex"
+path="res://.import/snake-normal.png-8e7b5ced2d70acf12a570d5456febef2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rocky Roads/Objects/treasure_chest.png"
-dest_files=[ "res://.import/treasure_chest.png-78c00a9e5339cc26cb47e5988f09d14e.stex" ]
+source_file="res://Rocky Roads/Enemies/snake-normal.png"
+dest_files=[ "res://.import/snake-normal.png-8e7b5ced2d70acf12a570d5456febef2.stex" ]
 
 [params]
 
