@@ -3,7 +3,7 @@
 
 Este proyecto fue creado con el objetivo de entender cómo funciona Godot Engine y, al mismo tiempo, trabajar y enseñar a los niños en las escuelas cómo utilizarlo
 # Resultado final
-<img src="./docs/2023-04-16 04-45-53.gif" aling="center" width="1000"></img>
+<img src="./docs/example.gif" aling="center" width="1000"></img>
 
 ## Capturas de pantalla
 

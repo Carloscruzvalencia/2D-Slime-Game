@@ -846,6 +846,6 @@ shape = SubResource( 25 )
 position = Vector2( 867, 64 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 812, 71 )
+position = Vector2( 126, 86 )
 
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_DeadZone_body_entered"]
